@@ -1,0 +1,17 @@
+<h1>History</h1>
+ 
+<table>
+  <tr>
+    <th>Word 1</th>
+    <th>Word 2</th>
+  </tr>
+ 
+  <% @anagrams.each do |anagram| %>
+    <tr>
+      <td><%= anagram.word1 %></td>
+      <td><%= anagram.word2 %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New anagram', new_anagram_path %>

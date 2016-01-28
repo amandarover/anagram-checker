@@ -1,0 +1,19 @@
+<h1>New</h1>
+<%= form_for :anagram, url: anagrams_path do |f| %>
+  <p>
+    <%= f.label :word1 %><br>
+    <%= f.text_field :word1 %>
+  </p>
+ 
+  <p>
+    <%= f.label :word2 %><br>
+    <%= f.text_field :word2 %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'History', anagrams_path %>
+<%= link_to 'home ♥', home_index_path %>
