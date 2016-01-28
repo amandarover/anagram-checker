@@ -8,4 +8,10 @@
   <%= @anagram.word2 %>
 </p>
 
-<%= link_to 'Back', anagrams_path %>
+<p>
+  <strong>Resultado:</strong>
+  <%= @anagramAnalysis %>
+</p>
+
+<%= link_to 'History', anagrams_path %> <br>
+<%= link_to 'New anagram', new_anagram_path %>
