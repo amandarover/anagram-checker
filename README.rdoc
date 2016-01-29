@@ -1,3 +1,8 @@
 == README
 
 This project is a ruby on rails application that verifies if two words or two phrases are anagrams. If so, saves it to the database.
+
+To start verifying the anagrams click on the button "Anagram checker".Insert on the blank space "Word1" a word or a phrase.
+Then, insert on the blank space "Word2" the word or phrase you want to compare.
+
+To see the history of your compared words just press on the link "History" on the home page or on the new page
