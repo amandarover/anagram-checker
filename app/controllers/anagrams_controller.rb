@@ -5,9 +5,6 @@ class AnagramsController < ApplicationController
 
 	def show
 		@anagram = Anagram.find(params[:id])
-
-		@anagramAnalysis = anagram_checker(:word1, :word2)
-
 	end
 
 	def new
@@ -15,6 +12,8 @@ class AnagramsController < ApplicationController
 	
 	def create
 		@anagram = Anagram.new(anagram_params)
+
+		@anagram.result = check_anagram(@anagram.word1, @anagram.word2)
 
 		if @anagram.save
 			redirect_to @anagram
@@ -26,25 +25,25 @@ class AnagramsController < ApplicationController
 	
 	private
 	  def anagram_params
-	    params.require(:anagram).permit(:word1, :word2)
+	    params.require(:anagram).permit(:word1, :word2, :result)
 	  end
 
-	  def anagram_checker(word1, word2)
+	  def check_anagram(word1, word2)
 	  	
-	  	if @anagram.word1.length > 0 && @anagram.word2.length > 0
+	  	if word1.length > 0 && word2.length > 0
  			
- 			if @anagram.word1.length.eql? (@anagram.word2.length)
-				@word1 = @anagram.word1.chars.sort.join
-	  			@word2 = @anagram.word2.chars.sort.join
+ 			if word1.length.eql? (word2.length)
+				word1 = word1.chars.sort.join
+	  			word2 = word2.chars.sort.join
 
-	  			if @word1.eql? (@word2)
+	  			if word1.eql? (word2)
 	  				"They are anagrams!!!!"
 	  			else
 	  				"They aren't anagrams..."
 	  			end
 
 	  		else
-	  			"They aren't anagrams...Their length is diferent"
+	  			"They aren't anagrams..."
 	  		end
  		else
 	  		"Fill in the two fields please"	  		

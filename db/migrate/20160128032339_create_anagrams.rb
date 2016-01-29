@@ -3,6 +3,7 @@ class CreateAnagrams < ActiveRecord::Migration
     create_table :anagrams do |t|
       t.string :word1
       t.string :word2
+      t.string :result
 
       t.timestamps null: false
     end
